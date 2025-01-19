@@ -1,0 +1,30 @@
+.pokedex {
+    background-color: #0f0f0f;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin-left: 0%;
+    padding-left: 0%;
+    align-content: left;
+    min-width: 100vw;
+}
+#pokemon{
+    align-content: left;
+    margin-top: 0%;
+    margin-left: 0%;
+    max-width: 12vw;
+}
+.pokedex-header {
+    min-width: 100vw;
+}
+
+.pokedex-pokemon{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin-top: 0%;
+    margin-left: 0%;
+    padding-left: 0%;
+    min-width: 100vw;
+    color: white !important;
+}
