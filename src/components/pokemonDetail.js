@@ -63,6 +63,10 @@ const PokemonDetail = () => {
         cry.play();
     }
 
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1)
+      }
+
     return (
         <div id="pokemon-detail">
             <PokedexAppBar />
@@ -73,7 +77,7 @@ const PokemonDetail = () => {
                         ) : (
             <div>
                 <Helmet>
-                    <title>{pokemon.name}</title>
+                    <title>{capitalizeFirstLetter(pokemon.name)}</title>
                 </Helmet>
                 <h1 className='pokemon-name'>{pokemon.name.toUpperCase()} <VolumeUpIcon fontSize='medium' onClick={playSound}/></h1>
                 <div className="pokemon-detail-info" style={{ display: 'flex', justifyContent: 'space-around',height: '60vh', overflowY: 'hidden' }}>
