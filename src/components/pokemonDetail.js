@@ -8,12 +8,16 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { CircularProgress } from '@mui/material';
 import { Helmet } from 'react-helmet';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const PokemonDetail = () => {
     const { id } = useParams();
     const [pokemon, setPokemon] = useState(null);
     const [pokemonTypes, setPokemonTypes] = useState(null);
     const [loading, setLoading] = useState(true);
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isMediumScreen = useMediaQuery('(max-width:960px)');
+
     const backgroundColor = {
         'normal': '#A8A77A',
         'fire': '#EE8130',
@@ -65,7 +69,7 @@ const PokemonDetail = () => {
 
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1)
-      }
+    }
 
     return (
         <div id="pokemon-detail">
@@ -80,14 +84,14 @@ const PokemonDetail = () => {
                     <title>{capitalizeFirstLetter(pokemon.name)}</title>
                 </Helmet>
                 <h1 className='pokemon-name'>{pokemon.name.toUpperCase()} <VolumeUpIcon fontSize='medium' onClick={playSound}/></h1>
-                <div className="pokemon-detail-info" style={{ display: 'flex', justifyContent: 'space-around',height: '60vh', overflowY: 'hidden' }}>
+                <div className="pokemon-detail-info" style={{ display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row', justifyContent: 'space-around',height: '60vh', overflowY: 'hidden' }}>
                 
                 <div className="pokemon-sprites">
-                        <img className='pokemon-gif' src={pokemon.sprites.other.showdown.front_default || pokemon.sprites.front_default} alt={pokemon.name} />
-                    </div>
+                    <img className='pokemon-gif' src={pokemon.sprites.other.showdown.front_default || pokemon.sprites.front_default} alt={pokemon.name} />
+                </div>
                     <div className="pokemon-attributes">
-                        <TableContainer component={Paper}>
-                            <Table className='pokemon-stats' sx={{ minWidth: 300 }} aria-label="simple table">
+                        <TableContainer component={Paper} sx={{ width: isSmallScreen ? '100%' : 'auto' }}>
+                            <Table className='pokemon-stats' sx={{ minWidth: isSmallScreen ? 150 : 300 }} aria-label="simple table">
                                 <TableHead>
                                     <TableRow className="cell"  >
                                         <TableCell>Attribute</TableCell>
@@ -101,7 +105,7 @@ const PokemonDetail = () => {
                                     </TableRow>
                                     <TableRow>
                                         <TableCell component="th" scope="row">Name</TableCell>
-                                        <TableCell align="right">{pokemon.name}</TableCell>
+                                        <TableCell align="right">{capitalizeFirstLetter(pokemon.name)}</TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableCell component="th" scope="row">Height</TableCell>
@@ -131,7 +135,7 @@ const PokemonDetail = () => {
                                                     fontWeight: 'bold'
                                                 }}
                                             >
-                                                {type}
+                                                {capitalizeFirstLetter(type)}
                                             </Box>
                                         ))} 
                                         </TableCell>
@@ -139,7 +143,7 @@ const PokemonDetail = () => {
                                     <TableRow>
                                         <TableCell component="th" scope="row">Abilities</TableCell>
                                         <TableCell align="right">
-                                            {pokemon.abilities.map(abilityInfo => abilityInfo.ability.name).join(', ')}
+                                            {pokemon.abilities.map(abilityInfo => capitalizeFirstLetter(abilityInfo.ability.name)).join(', ')}
                                         </TableCell>
                                     </TableRow>
                                 </TableBody>

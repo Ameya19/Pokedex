@@ -12,12 +12,15 @@ import Footer from './footer.js';
 import { useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import { Helmet } from "react-helmet";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Pokedex() {
 
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isMediumScreen = useMediaQuery('(max-width:960px)');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,6 +44,16 @@ function Pokedex() {
 
         fetchData();
     }, []);
+
+    const getImageListItemSize = () => {
+        if (isSmallScreen) {
+            return { width: '45vw', height: '30vh' };
+        } else if (isMediumScreen) {
+            return { width: '22vw', height: '25vh' };
+        } else {
+            return { width: '15vw', height: '25vh' };
+        }
+    };
     return (
         <div id="pokedex">
             <Helmet>
@@ -59,10 +72,10 @@ function Pokedex() {
                     </div>
                 ) : (
                 <div className="pokedex-pokemon">
-                    <ImageList sx={{ width: "100%", height: "100%"}} cols={6}>
+                    <ImageList sx={{ width: "100%", height: "100%"}} cols={isSmallScreen ? 2 : isMediumScreen ? 4 : 6}>
                         {pokemons.map((pokemon) => (
                             
-                            <ImageListItem sx={{ width: "15vw", height: "25vh", objectFit: 'cover' }} key={pokemon.id}>
+                            <ImageListItem sx={{ ...getImageListItemSize(), objectFit: 'cover' }} key={pokemon.id}>
                             <img
                                 srcSet={`${pokemon.sprites}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                                 src={`${pokemon.sprites.front_default}?w=164&h=164&fit=crop&auto=format`}
