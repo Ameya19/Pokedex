@@ -84,7 +84,8 @@ const PokemonDetail = () => {
                     <title>{capitalizeFirstLetter(pokemon.name)}</title>
                 </Helmet>
                 <h1 className='pokemon-name'>{pokemon.name.toUpperCase()} <VolumeUpIcon fontSize='medium' onClick={playSound}/></h1>
-                <div className="pokemon-detail-info" style={{ display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row', justifyContent: 'space-around',height: isSmallScreen ? "66vh":"60vh", overflowY: 'hidden' }}>
+                <div className="pokemon-detail-info" style={{ display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row', justifyContent: 'space-around',height: isSmallScreen ? "66vh":"60vh", 
+                    overflowY: isSmallScreen ? 'scroll' : 'hidden' }}>
                 
                 <div className="pokemon-sprites">
                     <img className='pokemon-gif' src={pokemon.sprites.other.showdown.front_default || pokemon.sprites.front_default} alt={pokemon.name} />

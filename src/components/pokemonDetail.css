@@ -49,6 +49,10 @@
     .pokemon-stats {
         width: 100%;
     }
+
+    .pokemon-detail-info::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 @media (max-width: 960px) {
