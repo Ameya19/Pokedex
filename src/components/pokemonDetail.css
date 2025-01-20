@@ -58,6 +58,7 @@
 @media (max-width: 960px) {
     .pokemon-gif {
         width: 25vw;
+        overflow-y: auto !important;
     }
 
     .pokemon-attributes {
@@ -72,6 +73,7 @@
 @media (min-width: 961px) {
     .pokemon-gif {
         width: 18vw;
+        max-height: 55vh;
     }
 
     .pokemon-attributes {
@@ -80,5 +82,5 @@
 
     .pokemon-stats {
         width: auto;
-    }
+    }   
 }
