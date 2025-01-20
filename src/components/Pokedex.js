@@ -65,7 +65,7 @@ function Pokedex() {
             <div className='search-bar'>
                 <TextField sx={{alignItems:"right"}}error id="outlined-error" label="Pokemon" />
             </div>
-            <div className="pokedex-body" style={{ height: isSmallScreen ? "77vh" : '68vh', overflowY: 'scroll' }}>
+            <div className="pokedex-body" style={{ height: isSmallScreen ? "73vh" : '68vh', overflowY: 'scroll' }}>
             {loading ? (
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                         <CircularProgress />
