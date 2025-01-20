@@ -37,9 +37,11 @@ body{
 }
 
 .search-bar{
+    display: flex;
+    flex-direction: row;
     margin-top: 1%;
     margin-bottom: 1%;
-    margin-left: 70%;
+    margin-left: 50%;
     padding-right: 10%;
     max-width: 100%;
     background-color: #0f0f0f;
