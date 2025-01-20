@@ -7,6 +7,7 @@ import './pokemonDetail.css';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box } from '@mui/material';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { CircularProgress } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
 const PokemonDetail = () => {
     const { id } = useParams();
@@ -71,6 +72,9 @@ const PokemonDetail = () => {
                             </div>
                         ) : (
             <div>
+                <Helmet>
+                    <title>{pokemon.name}</title>
+                </Helmet>
                 <h1 className='pokemon-name'>{pokemon.name.toUpperCase()} <VolumeUpIcon fontSize='medium' onClick={playSound}/></h1>
                 <div className="pokemon-detail-info" style={{ display: 'flex', justifyContent: 'space-around',height: '60vh', overflowY: 'hidden' }}>
                 

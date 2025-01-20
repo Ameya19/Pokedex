@@ -11,6 +11,7 @@ import axios from 'axios';
 import Footer from './footer.js';
 import { useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
+import { Helmet } from "react-helmet";
 
 function Pokedex() {
 
@@ -42,6 +43,9 @@ function Pokedex() {
     }, []);
     return (
         <div id="pokedex">
+            <Helmet>
+                <title>Pokedex</title>
+            </Helmet>
             <div className="pokedex-header">
                 <PokedexAppBar />
             </div>
