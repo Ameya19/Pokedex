@@ -54,4 +54,8 @@ body{
         display: none;
     }
 
+    .search-bar{
+        margin-left: 30%;
+    }
+
 }
