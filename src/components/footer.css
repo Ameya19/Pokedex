@@ -1,0 +1,17 @@
+.footer{
+    margin-top: 1%;
+    padding-top: 1%;
+    padding-bottom: 1% !important;
+    text-align: center;
+    min-width: 100%;
+    background-color: #222;
+    font-size: larger;
+}
+div#bottom {
+    position: fixed;
+    bottom: 0;
+  
+    /* And if you want the div to be full-width: */
+    left: 0;
+    right: 0;
+}

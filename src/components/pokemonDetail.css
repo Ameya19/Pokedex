@@ -1,0 +1,31 @@
+.pokemon-name {
+    background-color: #222;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 1%;
+}
+
+.pokemon-gif{
+    width: 18vw;
+    border-radius: 3%;
+    background-color: #3d3f3d;
+    padding: 2%;
+}
+
+.pokemon-detail-info{
+    background-color: #222;
+    color: white;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+.pokemon-stats {
+    background-color: rgba(34, 32, 32, 0.289) !important;;
+    border-color: #3d3f3d;
+}
+
+.cell {
+    border-color: #3d3f3d;
+    color: white;
+}
